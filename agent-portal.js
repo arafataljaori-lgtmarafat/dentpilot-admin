@@ -68,7 +68,7 @@
     root().className = '';
     root().innerHTML =
       '<div class="auth-wrap"><div class="auth-card">' +
-      '<div class="auth-head"><img class="logo" src="/icons/icon-192.png" alt="" />' +
+      '<div class="auth-head"><img class="logo" src="./icons/icon-192.png" alt="" />' +
       '<h1>بوابة الوكيل</h1><p>الدخول عبر رابط دعوة خاص من الإدارة</p></div>' +
       '<div class="auth-body">' +
       '<div class="form-error">' + esc(msg || 'الرابط مفقود أو غير صالح. لا يمكن فتح البوابة بدون رابط دعوة صحيح.') + '</div>' +
@@ -86,7 +86,7 @@
     root().className = '';
     var u = state.user, usage = state.usage || {};
     root().innerHTML =
-      '<div class="portal-top"><img src="/icons/icon-192.png" alt="" />' +
+      '<div class="portal-top"><img src="./icons/icon-192.png" alt="" />' +
       '<div class="t"><b>بوابة الوكيل</b><span>' + esc(u.name) + '</span></div>' +
       '<div class="spacer"></div><button class="btn btn-ghost btn-sm" id="out">خروج</button></div>' +
       '<div class="portal-wrap">' +

@@ -1,6 +1,15 @@
 /* عميل الـ API — يغلّف fetch ويحفظ رمز الجلسة فقط (وليس أي بيانات) */
 const TOKEN_KEY = 'dp_admin_token';
 
+/* المسار الأساسي لموقع المشروع — يدعم النشر داخل مجلد فرعي (مثل GitHub Pages
+   .../dentpilot-admin/) وكذلك النشر على جذر النطاق (Netlify/Vercel) دون أي
+   قيمة مكتوبة يدوياً. يُستخدم فقط لبناء روابط قابلة للمشاركة (بوابة الوكيل،
+   مولّد الأكواد)، ولا علاقة له بمسارات /api التي تبقى كما هي. */
+function siteBaseUrl() {
+  const dir = location.pathname.replace(/[^/]*$/, ''); // يبقي المجلد ويحذف اسم الملف الحالي فقط
+  return location.origin + dir;
+}
+
 const Api = {
   token: null,
   init() { try { this.token = localStorage.getItem(TOKEN_KEY) || null; } catch (e) { this.token = null; } },

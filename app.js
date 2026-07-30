@@ -120,7 +120,7 @@
     root().className = '';
     root().innerHTML =
       '<div class="auth-wrap"><div class="auth-card">' +
-      '<div class="auth-head"><img class="logo" src="/icons/icon-192.png" alt="" />' +
+      '<div class="auth-head"><img class="logo" src="./icons/icon-192.png" alt="" />' +
       '<h1>DentPilot Admin</h1><p>الإعداد الأولي — إنشاء حساب المالك</p>' +
       '<span class="badge-setup">يظهر هذا مرّة واحدة فقط</span></div>' +
       '<div class="auth-body">' +
@@ -157,7 +157,7 @@
     root().className = '';
     root().innerHTML =
       '<div class="auth-wrap"><div class="auth-card">' +
-      '<div class="auth-head"><img class="logo" src="/icons/icon-192.png" alt="" />' +
+      '<div class="auth-head"><img class="logo" src="./icons/icon-192.png" alt="" />' +
       '<h1>DentPilot Admin</h1><p>تسجيل الدخول إلى لوحة التحكم</p></div>' +
       '<div class="auth-body">' +
       '<div id="formErr"></div>' +
@@ -214,7 +214,7 @@
       '<div class="shell" id="shell">' +
       '<div class="scrim" id="scrim"></div>' +
       '<aside class="sidebar">' +
-      '<div class="brand"><img src="/icons/icon-192.png" alt="" /><div class="t"><b>DentPilot</b><span>Admin Console</span></div>' +
+      '<div class="brand"><img src="./icons/icon-192.png" alt="" /><div class="t"><b>DentPilot</b><span>Admin Console</span></div>' +
       '<button class="side-close" id="sideClose" aria-label="إغلاق القائمة">✕</button></div>' +
       '<nav class="nav">' + navHtml + '</nav>' +
       '<div class="foot">' +
@@ -307,7 +307,7 @@
   // لوحة الصفحة العامة: الرابط المباشر (بلا مفتاح) + نسخ + حالة الخدمة والحد اليومي
   async function renderPublicPagePanel() {
     const body = qs('#pubBody'); if (!body) return;
-    const url = location.origin + '/agent-generator.html';
+    const url = siteBaseUrl() + 'agent-generator.html';
     let status = null;
     try { status = await Api.agentPageStatus(); } catch (e) { /* تُعرض الحالة كغير متاحة */ }
     const on_ = status ? status.enabled : true;
@@ -357,7 +357,7 @@
   // يبني رابط الدعوة فقط عند وجود رمز حقيقي؛ يعيد null بدل "key=undefined"
   function inviteUrl(token) {
     if (!token || typeof token !== 'string' || token.indexOf('AGT_') !== 0) return null;
-    return location.origin + '/agent?key=' + token;
+    return siteBaseUrl() + 'agent.html?key=' + token;
   }
   function bindAgentActions() {
     // خزّن نسخة للوصول السريع عند التعديل
@@ -802,7 +802,7 @@
     const u = state.user, usage = state.usage || {};
     root().innerHTML =
       '<div class="shell agent"><div class="main">' +
-      '<div class="topbar"><img src="/icons/icon-192.png" width="30" height="30" style="border-radius:8px" alt="" />' +
+      '<div class="topbar"><img src="./icons/icon-192.png" width="30" height="30" style="border-radius:8px" alt="" />' +
       '<div><h2>DentPilot Admin</h2><div class="sub">لوحة الوكيل</div></div>' +
       '<div class="spacer"></div><button class="btn btn-ghost btn-sm" id="agentLogout">خروج</button></div>' +
       '<div class="content">' +
