@@ -1,0 +1,16 @@
+{
+  "name": "dentpilot-admin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "لوحة تحكم إدارية لإدارة تفعيل وبيع تطبيقات DentPilot (Student / Clinic)",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "test": "node test/run-tests.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "UNLICENSED"
+}

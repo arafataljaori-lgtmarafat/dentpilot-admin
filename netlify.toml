@@ -1,0 +1,37 @@
+# ============================================================
+# DentPilot Admin — إعداد Netlify
+# نفس المشروع، مع توجيه الـ Backend عبر Netlify Functions.
+# ============================================================
+
+[build]
+  # الموقع ثابت بالكامل (بلا خطوة بناء)، والدوال في netlify/functions
+  publish = "."
+  functions = "netlify/functions"
+  command = ""
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  # esbuild يجمّع الدوال ويضمّن ملفات api/** المُستدعاة عبر require
+  node_bundler = "esbuild"
+  included_files = ["api/**"]
+
+# نداءات الواجهة تبقى إلى /api/* ويعيد Netlify كتابتها إلى الدوال (rewrite داخلي)
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
+
+# رابط بوابة الوكيل النظيف
+[[redirects]]
+  from = "/agent"
+  to = "/agent.html"
+  status = 200
+
+# رابط مولّد أكواد الوكيل (بلا تسجيل دخول) النظيف
+[[redirects]]
+  from = "/agent-generator"
+  to = "/agent-generator.html"
+  status = 200
